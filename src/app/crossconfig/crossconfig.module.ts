@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { IonicModule } from '@ionic/angular';
-import { RouterModule } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 
-import { HomePage } from './home.page';
+import { IonicModule } from '@ionic/angular';
+
+import { CrossconfigPage } from './crossconfig.page';
+
 
 @NgModule({
   imports: [
@@ -14,10 +16,10 @@ import { HomePage } from './home.page';
     RouterModule.forChild([
       {
         path: '',
-        component: HomePage
+        component: CrossconfigPage
       }
     ])
   ],
-  declarations: [HomePage]
+  declarations: [CrossconfigPage]
 })
-export class HomePageModule {}
+export class CrossconfigPageModule {}
