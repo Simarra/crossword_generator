@@ -6,6 +6,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 
 import { CrossconfigPage } from './crossconfig.page';
+import { GridsizerComponent } from './gridsizer/gridsizer.component';
+import { WordsinputComponent } from './wordsinput/wordsinput.component';
 
 
 @NgModule({
@@ -20,6 +22,6 @@ import { CrossconfigPage } from './crossconfig.page';
       }
     ])
   ],
-  declarations: [CrossconfigPage]
+  declarations: [CrossconfigPage, GridsizerComponent]
 })
-export class CrossconfigPageModule {}
+export class CrossconfigPageModule { }
