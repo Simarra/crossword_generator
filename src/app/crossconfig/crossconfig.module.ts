@@ -22,6 +22,6 @@ import { WordsinputComponent } from './wordsinput/wordsinput.component';
       }
     ])
   ],
-  declarations: [CrossconfigPage, GridsizerComponent]
+  declarations: [CrossconfigPage, GridsizerComponent, WordsinputComponent]
 })
 export class CrossconfigPageModule { }
