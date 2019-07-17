@@ -7,23 +7,24 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
   styleUrls: ['./wordsinput.component.scss'],
 })
 export class WordsinputComponent implements OnInit {
-  public myForm: FormGroup;
-  private playerCount: number = 1;
+  public wordsDescrForm: FormGroup;
+  public wordsCount: number = 1;
 
   constructor(private formBuilder: FormBuilder) {
 
-    this.myForm = formBuilder.group({
-      player1: ['', Validators.required]
+    this.wordsDescrForm = formBuilder.group({
+      word: ['', Validators.required]
     });
   }
 
   addControl(){
-    this.playerCount++;
-    this.myForm.addControl('player' + this.playerCount, new FormControl('', Validators.required));
+    this.wordsCount++;
+    this.wordsDescrForm.addControl('word' + this.wordsCount, new FormControl('', Validators.required));
+    console.log(this.wordsDescrForm.value.word);
   }
 
   removeControl(control){
-    this.myForm.removeControl(control.key);
+    this.wordsDescrForm.removeControl(control.key);
   }
 
   ngOnInit() { }
