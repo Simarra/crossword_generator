@@ -7,21 +7,21 @@ import { IonRange } from '@ionic/angular';
   styleUrls: ['./gridsizer.component.scss'],
 })
 export class GridsizerComponent implements OnInit {
-  private goalProgress: number = 0;
-  private myval: number = 10;
+  public colnumber: number = 10;
+  public rownumber: number = 10;
+  public grid_size: number = 100;
 
   constructor() { }
 
   ngOnInit() {}
 
-  // get_grid_size(): void {
-    
-  // };
 
   rangeChange() {
-    this.goalProgress++;
-    console.log(this.goalProgress);
-    console.log(this.myval)
+    this.set_grid_size(this.colnumber, this.rownumber);
   } 
 
+  protected set_grid_size(cols: number, rows: number){
+    let res = cols * rows;
+    this.grid_size = res;
+  };
 }
