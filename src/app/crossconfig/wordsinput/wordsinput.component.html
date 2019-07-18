@@ -9,14 +9,14 @@
     
     <div class="col-6" *ngFor="let word of wordDescrFormGroup.controls; let i = index;">
       <ion-item [formGroupName]="i">
-        <label>Mot: </label>
-        <ion-input  formControlName="name" type="text"></ion-input>
-          <label>Description: </label>
-          <ion-input  formControlName="value" type="text"></ion-input>
-        <div class="form-group col-12 text-right">
-          <button class="btn btn-danger" type="button" (click)="removeWord(i)"> Remove </button>
-        </div>
+        <ion-label>Mot: </ion-label>
+        <ion-input  formControlName="word" type="text"></ion-input>
       </ion-item>
+      <ion-item [formGroupName]="i">
+          <ion-label>Description: </ion-label>
+          <ion-input  formControlName="descr" type="text"></ion-input>
+      </ion-item>
+          <button class="btn btn-danger" type="button" (click)="removeWord(i)"> Remove </button>
     </div>
   </div>
       <ion-button  (click)="addWord()"> Ajouter un Mot </ion-button>

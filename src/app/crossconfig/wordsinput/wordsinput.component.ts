@@ -29,8 +29,8 @@ public form: FormGroup;
   // contact formgroup
   createWord(): FormGroup {
     return this.fb.group({
-      name: [null, Validators.compose([Validators.required])], // i.e. Home, Office
-      value: [null, Validators.compose([Validators.required])]
+      word: [null, Validators.compose([Validators.required])],
+      descr: [null, Validators.compose([Validators.required])]
     });
   }
 
