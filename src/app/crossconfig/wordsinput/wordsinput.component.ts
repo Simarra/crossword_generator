@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, FormArray, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-wordsinput',
@@ -7,26 +7,54 @@ import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms'
   styleUrls: ['./wordsinput.component.scss'],
 })
 export class WordsinputComponent implements OnInit {
-  public wordsDescrForm: FormGroup;
-  public wordsCount: number = 1;
+public form: FormGroup;
+  public WordDecrList: FormArray;
 
-  constructor(private formBuilder: FormBuilder) {
+  // returns all form groups under contacts
+  get wordDescrFormGroup() {
+    return this.form.get('words') as FormArray;
+  }
 
-    this.wordsDescrForm = formBuilder.group({
-      word: ['', Validators.required]
+  constructor(private fb: FormBuilder) {}
+
+  ngOnInit() {
+    this.form = this.fb.group({
+      words: this.fb.array([this.createWord()])
+    });
+
+    // set contactlist to this field
+    this.WordDecrList = this.form.get('words') as FormArray;
+  }
+
+  // contact formgroup
+  createWord(): FormGroup {
+    return this.fb.group({
+      name: [null, Validators.compose([Validators.required])], // i.e. Home, Office
+      value: [null, Validators.compose([Validators.required])]
     });
   }
 
-  addControl(){
-    this.wordsCount++;
-    this.wordsDescrForm.addControl('word' + this.wordsCount, new FormControl('', Validators.required));
-    console.log(this.wordsDescrForm.value.word);
+  // add a contact form group
+  addWord() {
+    this.WordDecrList.push(this.createWord());
   }
 
-  removeControl(control){
-    this.wordsDescrForm.removeControl(control.key);
+  // remove contact from group
+  removeWord(index) {
+    // this.contactList = this.form.get('contacts') as FormArray;
+    this.WordDecrList.removeAt(index);
   }
 
-  ngOnInit() { }
 
+  // get the formgroup under contacts form array
+  getContactsFormGroup(index): FormGroup {
+    // this.contactList = this.form.get('contacts') as FormArray;
+    const formGroup = this.WordDecrList.controls[index] as FormGroup;
+    return formGroup;
+  }
+
+  // method triggered when form is submitted
+  submit() {
+    console.log(this.form.value);
+  }
 }
