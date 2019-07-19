@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, FormArray, Validators } from '@angular/forms';
+import { WordService } from './../../services/word-changed-emitter.service'
 
 @Component({
   selector: 'app-wordsinput',
@@ -10,15 +11,12 @@ export class WordsinputComponent implements OnInit {
   public form: FormGroup;
   public WordDecrList: FormArray;
 
-  public letter_count: number;
-  public longer_word_len: number;
-
   // returns all form groups under contacts
   get wordDescrFormGroup() {
     return this.form.get('words') as FormArray;
   }
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private wordservice: WordService) { }
 
   ngOnInit() {
     this.form = this.fb.group({
@@ -49,24 +47,30 @@ export class WordsinputComponent implements OnInit {
   }
 
 
-  updateLetterCount() {
+  wordUpdated() {
     // Update letter and word count.
-    let word_len: number = 0;
-    let word_len_count:number = 0;
+    // Then call function to emit a signal.
+    let max_word_len: number = 0;
+    let word_len_count: number = 0;
     for (let worddescr of this.form.value.words) {
-      let word:string = worddescr.word;
-      let tmp_word_len:number = word.length;
-      if (tmp_word_len > word_len){
-        word_len = tmp_word_len;
+      let word: string = worddescr.word;
+      let tmp_word_len: number = word.length;
+      if (tmp_word_len > max_word_len) {
+        max_word_len = tmp_word_len;
       }
       word_len_count += tmp_word_len;
     };
 
-    this.letter_count = word_len_count;
-    this.longer_word_len = word_len;
-
+    this.emitSignal(word_len_count, max_word_len);
   }
   ;
+
+  private emitSignal(letter_count: number, longer_word_len: number){
+    let dict_count_len: {} = {};
+    dict_count_len["count"] = letter_count;
+    dict_count_len["len"] = longer_word_len;
+    this.wordservice.wordChanged.emit(dict_count_len);
+  };
 
   // method triggered when form is submitted
   submit() {

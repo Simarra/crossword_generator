@@ -6,7 +6,7 @@
         <div *ngFor="let word of wordDescrFormGroup.controls; let i = index;">
           <h5>Mot:</h5>
           <ion-item [formGroupName]="i">
-            <ion-input formControlName="word" type="text" (ionChange)="updateLetterCount()"></ion-input>
+            <ion-input formControlName="word" type="text" (ionChange)="wordUpdated()"></ion-input>
             <ion-icon (click)="removeWord(i)" name="close-circle" class="del-word"></ion-icon>
           </ion-item>
           <h5>Description</h5>
