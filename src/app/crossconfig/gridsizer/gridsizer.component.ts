@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IonRange } from '@ionic/angular';
+import { GridRowColChangeService, GridSizeChangeService }  from './../../services/gridsize-changed-emitter.service'
 
 @Component({
   selector: 'app-gridsizer',
@@ -9,19 +10,34 @@ import { IonRange } from '@ionic/angular';
 export class GridsizerComponent implements OnInit {
   public colnumber: number = 10;
   public rownumber: number = 10;
-  public grid_size: number = 100;
 
-  constructor() { }
+  constructor(private gridrowchangedservice:GridRowColChangeService, private gridsizechangedservice: GridSizeChangeService) { }
 
   ngOnInit() {}
 
 
-  rangeChange() {
-    this.set_grid_size(this.colnumber, this.rownumber);
+  public rangeChange() {
+    let grid_size:number = this.get_grid_size(this.colnumber, this.rownumber);
+    this.emitRowColSignal();
+    this.emitSizeSignal(grid_size);
+    
   } 
 
-  protected set_grid_size(cols: number, rows: number){
+  protected get_grid_size(cols: number, rows: number){
     let res = cols * rows;
-    this.grid_size = res;
+    let grid_size:number = res;
+    return grid_size;
   };
+
+  private emitRowColSignal(){
+    let dict_col_row: {} = {};
+    dict_col_row["colnumber"] = this.colnumber;
+    dict_col_row["rownumber"] = this.rownumber;
+    this.gridrowchangedservice.gridSizeChanged.emit(dict_col_row);
+  };
+
+  private emitSizeSignal(grid_size:number){
+    this.gridsizechangedservice.gridSizeChanged.emit(grid_size);
+
+  }
 }
