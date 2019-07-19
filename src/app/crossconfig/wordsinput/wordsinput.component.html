@@ -2,37 +2,37 @@
 
 
 
-<ion-list lines="none">
-<form [formGroup]="form" (submit)="submit()">
-  
-  <div class="card-body" formArrayName="words">
-    
-    <div class="col-6" *ngFor="let word of wordDescrFormGroup.controls; let i = index;">
-      <ion-item [formGroupName]="i">
-        <ion-label>Mot: </ion-label>
-        <ion-input  formControlName="word" type="text"></ion-input>
-      </ion-item>
-      <ion-item [formGroupName]="i">
+  <ion-list lines="none">
+    <form [formGroup]="form" (submit)="submit()">
+
+      <div class="card-body" formArrayName="words">
+
+        <div class="col-6" *ngFor="let word of wordDescrFormGroup.controls; let i = index;">
+          <ion-label>Mot: </ion-label>
+          <ion-item [formGroupName]="i">
+            <ion-input formControlName="word" type="text"></ion-input>
+            <ion-icon (click)="removeWord(i)" name="close-circle" class="del-word"></ion-icon>
+          </ion-item>
           <ion-label>Description: </ion-label>
-          <ion-input  formControlName="descr" type="text"></ion-input>
-      </ion-item>
-          <button class="btn btn-danger" type="button" (click)="removeWord(i)"> Remove </button>
-    </div>
-  </div>
-      <ion-button  (click)="addWord()"> Ajouter un Mot </ion-button>
+          <ion-item [formGroupName]="i">
+            <ion-input formControlName="descr" type="text"></ion-input>
+          </ion-item>
+        </div>
+      </div>
+      <ion-button (click)="addWord()" expand="full"> Ajouter un Mot </ion-button>
       <!-- <button class="btn btn-success m-1" [disabled]="!form.valid" type="submit"> Save User Profile </button> -->
 
-</form>
-</ion-list>
+    </form>
+  </ion-list>
 
-<p>
-  Form Value: {{ form.value | json }}
-</p>
+  <p>
+    Form Value: {{ form.value | json }}
+  </p>
 
 
-<p>
-  Form Status: {{ form.status }}
-</p>
+  <p>
+    Form Status: {{ form.status }}
+  </p>
 
 
 </ion-content>
