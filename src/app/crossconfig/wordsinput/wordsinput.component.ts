@@ -74,8 +74,4 @@ export class WordsinputComponent implements OnInit {
     this.wordservice.transmitDescrs.emit(this.form.value.words.map(x => x.descr));
   };
 
-  // method triggered when form is submitted
-  submit() {
-    console.log(this.form.value);
-  }
 }
