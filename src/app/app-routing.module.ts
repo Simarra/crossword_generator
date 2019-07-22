@@ -7,10 +7,6 @@ const routes: Routes = [
     redirectTo: 'crossconfig',
     pathMatch: 'full'
   },
-  {
-    path: 'list',
-    loadChildren: './list/list.module#ListPageModule'
-  },
   { path: 'crossconfig', loadChildren: './crossconfig/crossconfig.module#CrossconfigPageModule' }
 ];
 
