@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { WordService } from './../services/word-changed-emitter.service'
-import { GridRowColChangeService, GridSizeChangeService } from './../services/gridsize-changed-emitter.service'
+import { GridRowColChangeService, GridSizeChangeService } from './../services/gridsize-changed-emitter.service';
+import { GridManagerService} from './../services/grid-manager.service';
+import { generate_crossword, Grid } from 'ts_crossword';
 
 @Component({
   selector: 'app-crossconfig',
@@ -16,9 +18,13 @@ export class CrossconfigPage implements OnInit {
   public rownumber: number;
   public cellnumber: number;
 
+  public words: Array<string>;
+  public descrs: Array<string>;
+
   public validconfig: boolean = false;
 
-  constructor(private wordservice: WordService, private gridrowcolchangedservice: GridRowColChangeService, private gridsizechangeservice: GridSizeChangeService) { }
+  constructor(private wordservice: WordService, private gridrowcolchangedservice: GridRowColChangeService, private gridsizechangeservice: GridSizeChangeService,
+    private gridmanagerservice: GridManagerService) { }
 
   ngOnInit() {
     this.wordservice.wordChanged.subscribe((data: {}) => {
@@ -32,6 +38,13 @@ export class CrossconfigPage implements OnInit {
     this.gridsizechangeservice.gridSizeChanged.subscribe((data: number) => {
       this.cellnumber = data;
     });
-  }
+  };
+
+  public generateGrid(
+  ){
+    let grid:Grid = generate_crossword();
+    this.gridmanagerservice.grid = grid;
+
+  };
 
 }

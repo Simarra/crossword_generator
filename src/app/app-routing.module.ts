@@ -7,7 +7,8 @@ const routes: Routes = [
     redirectTo: 'crossconfig',
     pathMatch: 'full'
   },
-  { path: 'crossconfig', loadChildren: './crossconfig/crossconfig.module#CrossconfigPageModule' }
+  { path: 'crossconfig', loadChildren: './crossconfig/crossconfig.module#CrossconfigPageModule' },
+  { path: 'gridviewer', loadChildren: './gridviewer/gridviewer.module#GridviewerPageModule' }
 ];
 
 @NgModule({

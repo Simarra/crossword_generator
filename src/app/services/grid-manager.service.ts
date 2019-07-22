@@ -1,13 +1,14 @@
 import { Injectable } from '@angular/core';
-import { generate_crossword } from 'ts_crossword'
+import { generate_crossword, Grid, WordListDescr} from 'ts_crossword'
 
 @Injectable({
   providedIn: 'root'
 })
 export class GridManagerService {
-  grid: any;
+  grid: Grid;
+  word_descr: WordListDescr;
 
   constructor(){
-    this.grid = generate_crossword;
+    // this.grid = generate_crossword([''], ['lo'], 3, 3); // Gen empty grid at init.
   }
 }

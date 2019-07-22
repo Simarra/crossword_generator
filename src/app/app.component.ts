@@ -16,9 +16,9 @@ export class AppComponent {
       icon: 'cog'
     },
     {
-      title: 'List',
-      url: '/list',
-      icon: 'list'
+      title: 'Grille',
+      url: '/gridviewer',
+      icon: 'grid'
     }
   ];
 
