@@ -26,9 +26,9 @@
     "@ionic/angular": "^4.1.0",
     "core-js": "^2.5.4",
     "rxjs": "~6.5.1",
+    "ts_crossword": "0.0.4",
     "tslib": "^1.9.0",
-    "zone.js": "~0.8.29",
-    "ts_crossword": "~0.0.3"
+    "zone.js": "~0.8.29"
   },
   "devDependencies": {
     "@angular-devkit/architect": "~0.13.8",
