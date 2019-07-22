@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { WordService } from './../services/word-changed-emitter.service'
 import { GridRowColChangeService, GridSizeChangeService } from './../services/gridsize-changed-emitter.service';
-import { GridManagerService} from './../services/grid-manager.service';
+import { GridManagerService } from './../services/grid-manager.service';
 import { generate_crossword, Grid } from 'ts_crossword';
 
 @Component({
@@ -27,7 +27,7 @@ export class CrossconfigPage implements OnInit {
     private gridmanagerservice: GridManagerService) { }
 
   ngOnInit() {
-    this.wordservice.wordChanged.subscribe((data: {}) => {
+    this.wordservice.transmitLen.subscribe((data: {}) => {
       this.letter_count = data["count"];
       this.longer_word_len = data["len"];
     });
@@ -38,11 +38,17 @@ export class CrossconfigPage implements OnInit {
     this.gridsizechangeservice.gridSizeChanged.subscribe((data: number) => {
       this.cellnumber = data;
     });
+    this.wordservice.transmitWords.subscribe((data: Array<string>) => {
+      this.words = data;
+    });
+    this.wordservice.transmitDescrs.subscribe((data: Array<string>) => {
+      this.descrs = data;
+    });
   };
 
   public generateGrid(
-  ){
-    let grid:Grid = generate_crossword();
+  ) {
+    let grid: Grid = generate_crossword(this.words, this.descrs, this.rownumber, this.colnumber);
     this.gridmanagerservice.grid = grid;
 
   };

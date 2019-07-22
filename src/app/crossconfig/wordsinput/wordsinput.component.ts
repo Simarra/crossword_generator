@@ -69,7 +69,9 @@ export class WordsinputComponent implements OnInit {
     let dict_count_len: {} = {};
     dict_count_len["count"] = letter_count;
     dict_count_len["len"] = longer_word_len;
-    this.wordservice.wordChanged.emit(dict_count_len);
+    this.wordservice.transmitLen.emit(dict_count_len);
+    this.wordservice.transmitWords.emit(this.form.value.words.map(x => x.word));
+    this.wordservice.transmitDescrs.emit(this.form.value.words.map(x => x.descr));
   };
 
   // method triggered when form is submitted
