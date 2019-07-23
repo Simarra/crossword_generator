@@ -8,6 +8,10 @@ import { GridManagerService } from './../services/grid-manager.service'
 })
 export class GridwidgetComponent implements OnInit {
 
+  get idxArray(){
+    return this.gserv.JsonArrayWithIdx();
+  };
+
   constructor(private gserv: GridManagerService) { }
 
   ngOnInit() {}
