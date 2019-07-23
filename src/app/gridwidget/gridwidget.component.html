@@ -1,5 +1,7 @@
 <table>
-  <tr *ngFor="let row of idxArray">
-    <td *ngFor="let cell of row">{{cell}}</td>
+  <tr *ngFor="let row of cellArray">
+    <td *ngFor="let cell of row;" [ngStyle]="{ color: red }">
+      {{cell.idx}}
+    </td>
   </tr>
 </table>

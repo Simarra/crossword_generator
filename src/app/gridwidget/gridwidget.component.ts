@@ -8,8 +8,8 @@ import { GridManagerService } from './../services/grid-manager.service'
 })
 export class GridwidgetComponent implements OnInit {
 
-  get idxArray(){
-    return this.gserv.JsonArrayWithIdx();
+  get cellArray(){
+    return this.gserv.grid.board;
   };
 
   constructor(private gserv: GridManagerService) { }
