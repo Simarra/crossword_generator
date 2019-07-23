@@ -10,5 +10,11 @@ export class GridManagerService {
 
   constructor(){
     // this.grid = generate_crossword([''], ['lo'], 3, 3); // Gen empty grid at init.
-  }
+  };
+
+  public JsonArrayWithIdx() {
+    if (this.grid){
+      this.grid.show_grid_in_console()
+    }
+  };
 }

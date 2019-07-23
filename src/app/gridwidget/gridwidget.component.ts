@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GridManagerService } from './../services/grid-manager.service'
 
 @Component({
   selector: 'app-gridwidget',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GridwidgetComponent implements OnInit {
 
-  constructor() { }
+  constructor(private gserv: GridManagerService) { }
 
   ngOnInit() {}
 

@@ -56,6 +56,7 @@ export class CrossconfigPage implements OnInit {
     // TODO: Generate a trigger to grey out the submit button.
     let grid: Grid = generate_crossword(this.words, this.descrs, this.rownumber, this.colnumber);
     this.gridmanagerservice.grid = grid;
+    grid.show_grid_in_console();
 
   };
 
