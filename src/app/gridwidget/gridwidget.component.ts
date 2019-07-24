@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GridManagerService } from './../services/grid-manager.service'
+import { GridManagerService } from './../services/grid-manager.service';
 
 @Component({
   selector: 'app-gridwidget',
@@ -8,9 +8,9 @@ import { GridManagerService } from './../services/grid-manager.service'
 })
 export class GridwidgetComponent implements OnInit {
 
-  get cellArray(){
+  get cellsArray() {
     return this.gserv.grid.board;
-  };
+  }
 
   constructor(private gserv: GridManagerService) { }
 

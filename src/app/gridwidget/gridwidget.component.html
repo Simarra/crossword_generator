@@ -1,6 +1,6 @@
 <table>
-  <tr *ngFor="let row of cellArray">
-    <td *ngFor="let cell of row;" [ngStyle]="{ color: red }">
+  <tr *ngFor="let row of cellsArray">
+	  <td *ngFor="let cell of row;" [ngClass]="{ 'blacked-cell': !cell.letter}">
       {{cell.idx}}
     </td>
   </tr>
