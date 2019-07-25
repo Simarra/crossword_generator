@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {GridManagerService} from './../services/grid-manager.service'
 
 @Component({
   selector: 'app-descriptions',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DescriptionsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private gridmngr: GridManagerService) { }
 
+  get wordDescr() {
+    return this.gridmngr.grid.words.word_desc_array;
+  }
   ngOnInit() {}
 
 }

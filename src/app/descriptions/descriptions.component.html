@@ -1,3 +1,5 @@
-<p>
-  descriptions works!
-</p>
+<ul>
+  <li *ngFor="let word_descr of wordDescr; let i = index">
+      {{i}} : {{word_descr[1]}} 
+  </li>
+</ul>
