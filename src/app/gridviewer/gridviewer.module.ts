@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { GridviewerPage } from './gridviewer.page';
 import { GridwidgetComponent } from '../gridwidget/gridwidget.component'
+import { DescriptionsComponent} from './../descriptions/descriptions.component';
 
 const routes: Routes = [
   {
@@ -22,6 +23,6 @@ const routes: Routes = [
     IonicModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [GridviewerPage, GridwidgetComponent]
+  declarations: [GridviewerPage, GridwidgetComponent, DescriptionsComponent]
 })
 export class GridviewerPageModule {}
