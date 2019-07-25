@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Configuration de la grille</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding="true">
+
+  <app-gridsizer></app-gridsizer>
+  <app-wordsinput></app-wordsinput>
+
+  <ion-button color="primary" expand="full" (click)="generateGrid()" [disabled]="!validconfig">Générer la grille</ion-button>
+
+
+
+</ion-content>
