@@ -28,6 +28,8 @@ export class WordsinputComponent implements OnInit {
     this.removeWord(0);
     for (let word_descr of this.gridmng.grid.words.word_desc_array){
       this.WordDecrList.push(this.createWord(word_descr[0], word_descr[1]));
+    
+      this.wordUpdated();
 
     }
   }
