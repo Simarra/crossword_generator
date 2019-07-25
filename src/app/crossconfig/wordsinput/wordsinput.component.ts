@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, FormControl, FormArray, Validators } from '@angular/forms';
-import { WordService } from './../../services/word-changed-emitter.service'
+import { WordService } from './../../services/word-changed-emitter.service';
+import { GridManagerService } from './../../services/grid-manager.service'
 
 @Component({
   selector: 'app-wordsinput',
@@ -16,28 +17,34 @@ export class WordsinputComponent implements OnInit {
     return this.form.get('words') as FormArray;
   }
 
-  constructor(private fb: FormBuilder, private wordservice: WordService) { }
+  constructor(private fb: FormBuilder, private wordservice: WordService, private gridmng: GridManagerService) { }
 
   ngOnInit() {
     this.form = this.fb.group({
-      words: this.fb.array([this.createWord()])
+      words: this.fb.array([this.createWord(null, null)])
     });
-
     // set contactlist to this field
     this.WordDecrList = this.form.get('words') as FormArray;
+    this.removeWord(0);
+    for (let word_descr of this.gridmng.grid.words.word_desc_array){
+      this.WordDecrList.push(this.createWord(word_descr[0], word_descr[1]));
+    
+      this.wordUpdated();
+
+    }
   }
 
   // contact formgroup
-  createWord(): FormGroup {
+  createWord(wd:string | null, des:string | null): FormGroup {
     return this.fb.group({
-      word: [null, Validators.compose([Validators.required])],
-      descr: [null, Validators.compose([Validators.required])]
+      word: [wd, Validators.compose([Validators.required])],
+      descr: [des, Validators.compose([Validators.required])]
     });
   }
 
   // add a contact form group
-  addWord() {
-    this.WordDecrList.push(this.createWord());
+  addWordFromForm() {
+    this.WordDecrList.push(this.createWord(null, null));
   }
 
   // remove contact from group
