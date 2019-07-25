@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IonRange } from '@ionic/angular';
 import { GridRowColChangeService, GridSizeChangeService }  from './../../services/gridsize-changed-emitter.service'
+import { GridManagerService } from './../../services/grid-manager.service'
 
 @Component({
   selector: 'app-gridsizer',
@@ -8,12 +9,16 @@ import { GridRowColChangeService, GridSizeChangeService }  from './../../service
   styleUrls: ['./gridsizer.component.scss'],
 })
 export class GridsizerComponent implements OnInit {
-  public colnumber: number = 10;
-  public rownumber: number = 10;
+  public colnumber: number;
+  public rownumber: number;
 
-  constructor(private gridrowchangedservice:GridRowColChangeService, private gridsizechangedservice: GridSizeChangeService) { }
+  constructor(private gridrowchangedservice:GridRowColChangeService, private gridsizechangedservice: GridSizeChangeService, private gridmngr: GridManagerService) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.colnumber = this.gridmngr.grid.nb_col + 1;
+    this.rownumber = this.gridmngr.grid.nb_row + 1;
+    this.rangeChange();
+  }
 
 
   public rangeChange() {
