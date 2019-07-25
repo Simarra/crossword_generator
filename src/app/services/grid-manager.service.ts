@@ -10,7 +10,7 @@ export class GridManagerService {
 
 
   constructor(){
-    // this.grid = generate_crossword([''], ['lo'], 3, 3); // Gen empty grid at init.
+    this.grid = generate_crossword(['lo'], ['lo'], 10, 10); // Gen empty grid at init.
   };
 
 }
