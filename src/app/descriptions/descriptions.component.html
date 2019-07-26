@@ -1,5 +1,5 @@
 <ul>
-  <li *ngFor="let word_descr of wordDescr; let i = index">
-      {{i}} : {{word_descr[1]}} 
-  </li>
+  <ion-item *ngFor="let word_descr of wordDescr; let i = index">
+      <span class="descr-idx">{{i}}</span><span class="descr">  {{word_descr[1]}}</span> 
+  </ion-item>
 </ul>
