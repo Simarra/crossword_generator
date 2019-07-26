@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { GridcorrectionPage } from './gridcorrection.page';
 import { GridcorrwidgetComponent } from './gridcorrwidget/gridcorrwidget.component';
-import { DescriptionsComponent } from './../descriptions/descriptions.component'
+import { DescriptionModule } from '../descriptions/descriptions.module';
 
 const routes: Routes = [
   {
@@ -21,8 +21,9 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    DescriptionModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [GridcorrectionPage, GridcorrwidgetComponent, DescriptionsComponent]
+  declarations: [GridcorrectionPage, GridcorrwidgetComponent]
 })
 export class GridcorrectionPageModule { }

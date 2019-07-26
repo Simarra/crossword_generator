@@ -7,7 +7,7 @@ import { IonicModule } from '@ionic/angular';
 
 import { GridviewerPage } from './gridviewer.page';
 import { GridwidgetComponent } from '../gridwidget/gridwidget.component'
-import { DescriptionsComponent} from './../descriptions/descriptions.component';
+import { DescriptionModule } from '../descriptions/descriptions.module';
 
 const routes: Routes = [
   {
@@ -21,8 +21,9 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     IonicModule,
+    DescriptionModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [GridviewerPage, GridwidgetComponent, DescriptionsComponent]
+  declarations: [GridviewerPage, GridwidgetComponent]
 })
 export class GridviewerPageModule {}
