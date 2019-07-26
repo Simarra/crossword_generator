@@ -11,7 +11,7 @@
           </ion-item>
           <h5>Description</h5>
           <ion-item [formGroupName]="i">
-            <ion-input formControlName="descr" type="text" class="descr"  ></ion-input>
+            <ion-input formControlName="descr" type="text" class="descr" (ionChange)="wordUpdated()" ></ion-input>
           </ion-item>
         </div>
       </div>
