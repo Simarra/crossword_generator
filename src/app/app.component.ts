@@ -19,6 +19,11 @@ export class AppComponent {
       title: 'Grille',
       url: '/gridviewer',
       icon: 'grid'
+    },
+        {
+      title: 'Correction',
+      url: '/gridcorrection',
+      icon: 'checkmark-circle-outline'
     }
   ];
 

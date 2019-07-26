@@ -8,7 +8,8 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   { path: 'crossconfig', loadChildren: './crossconfig/crossconfig.module#CrossconfigPageModule' },
-  { path: 'gridviewer', loadChildren: './gridviewer/gridviewer.module#GridviewerPageModule' }
+  { path: 'gridviewer', loadChildren: './gridviewer/gridviewer.module#GridviewerPageModule' },
+  { path: 'gridcorrection', loadChildren: './gridcorrection/gridcorrection.module#GridcorrectionPageModule' }
 ];
 
 @NgModule({

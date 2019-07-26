@@ -1,0 +1,20 @@
+
+table, td {
+  border: 1px solid black;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td {
+  height: 40px;
+  width: 100px;
+  vertical-align: top;
+}
+
+.blacked-cell {
+  background-color: #284349;
+  color: 'red';
+}
