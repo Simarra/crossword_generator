@@ -1,11 +1,11 @@
-table, td {
-  border: 1px solid black;
-}
+$black-cell-style: #284349;
 
 table {
+  border: 1px solid black;
   border-collapse: collapse;
   width: 100%;
 }
+
 
 td {
   height: 40px;
@@ -14,6 +14,10 @@ td {
 }
 
 .blacked-cell {
-  background-color: #284349;
+  background-color: $black-cell-style;
   color: 'red';
+}
+
+.letter-size-part {
+  vertical-align: middle;
 }
