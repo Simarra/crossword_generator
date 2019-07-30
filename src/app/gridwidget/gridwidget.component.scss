@@ -1,10 +1,11 @@
 $black-cell-style: #284349;
-$cell-size: 80px;
+$cell-size: 50px;
 
 .main-container {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  width: 100%
 }
 
 .main-cell {
@@ -24,13 +25,14 @@ $cell-size: 80px;
 .letter-cell {
   display:flex;
   justify-content: center;
+  vertical-align: middle;
+  height:80%;
 }
 
 .idx-cell {
   display: flex;
   justify-content: left;
-  height: $cell-size * 0.2;
-    width: $cell-size;
+  height:20%;
     .idx-font {
       font-size: small;
     }
