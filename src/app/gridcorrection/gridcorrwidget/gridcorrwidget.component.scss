@@ -1,20 +1,39 @@
+$black-cell-style: #284349;
+$cell-size: 50px;
 
-table, td {
-  border: 1px solid black;
+.main-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%
 }
 
-table {
-  border-collapse: collapse;
-  width: 100%;
-}
-
-td {
-  height: 40px;
-  width: 100px;
-  vertical-align: top;
+.main-cell {
+  display: flex;
+  flex-direction: column;
+  height: $cell-size;
+  width: $cell-size;
+  max-height: $cell-size;
+  max-width: $cell-size;
+  border: 1px solid black
 }
 
 .blacked-cell {
-  background-color: #284349;
-  color: 'red';
+  background-color: $black-cell-style;
+}
+
+.letter-cell {
+  display:flex;
+  justify-content: center;
+  vertical-align: middle;
+  height:80%;
+}
+
+.idx-cell {
+  display: flex;
+  justify-content: left;
+  height:20%;
+    .idx-font {
+      font-size: small;
+    }
 }
