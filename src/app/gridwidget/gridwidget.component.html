@@ -1,16 +1,8 @@
-<table>
+<table class="main-table">
   <tr *ngFor="let row of cellsArray">
-    <td *ngFor="let cell of row;" [ngClass]="{ 'blacked-cell': !cell.letter}">
-      <table>
-        <tr>
-          <td>{{cell.idx}}</td>
-          <td class="letter-size-part" rowspan="2">LET</td>
-        </tr>
-        <tr>
-        <td></td>
-        <!-- <td>row2 col 2</td> -->
-        </tr>
-      </table>
+    <td  class="main-cell" *ngFor="let cell of row;" [ngClass]="{ 'blacked-cell': !cell.letter}">
+          <div class="idx-cell" ><div class="idx-font">{{cell.idx}}</div></div>
+          <div class="letter-cell" ><div class="letter-font">L</div></div>
     </td>
   </tr>
 </table>
