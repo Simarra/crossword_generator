@@ -1,37 +1,37 @@
 $black-cell-style: #284349;
 $cell-size: 80px;
 
-.main-table {
-  border: 1px solid black;
-  border-collapse: collapse;
-  width: 100%;
+.main-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
 
-  main-cell {
-    height: $cell-size;
-    width: $cell-size;
-    max-height: $cell-size;
-    max-width: $cell-size;
-    // vertical-align: top;
-  }
+.main-cell {
+  display: flex;
+  flex-direction: column;
+  height: $cell-size;
+  width: $cell-size;
+  max-height: $cell-size;
+  max-width: $cell-size;
+  border: 1px solid black
+}
 
-  .blacked-cell {
-    background-color: $black-cell-style;
-    color: "red";
-  }
+.blacked-cell {
+  background-color: $black-cell-style;
+}
 
-  .idx-cell {
-    height: $cell-size * 0.2;
+.letter-cell {
+  display:flex;
+  justify-content: center;
+}
+
+.idx-cell {
+  display: flex;
+  justify-content: left;
+  height: $cell-size * 0.2;
     width: $cell-size;
     .idx-font {
       font-size: small;
     }
-  }
-
-  .letter-cell {
-    height: $cell-size * 0.8;
-    width: $cell-size;
-    .letter-font {
-      font-size: small;
-    }
-  }
 }
