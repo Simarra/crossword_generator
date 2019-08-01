@@ -1,5 +1,5 @@
-<div class="main-container">
-  <div *ngFor="let row of cellsArray">
+<div >
+  <div class="rows" *ngFor="let row of cellsArray">
     <div  class="main-cell" *ngFor="let cell of row;" [ngClass]="{ 'blacked-cell': !cell.letter}">
           <div class="idx-cell" ><div class="idx-font">{{cell.idx}}</div></div>
           <div class="letter-cell" ><p class="letter-font"></p>{{cell.letter}}</div>
