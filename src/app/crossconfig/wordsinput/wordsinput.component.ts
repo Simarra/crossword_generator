@@ -51,6 +51,7 @@ export class WordsinputComponent implements OnInit {
   removeWord(index) {
     // this.contactList = this.form.get('contacts') as FormArray;
     this.WordDecrList.removeAt(index);
+    this.wordUpdated();
   }
 
 
