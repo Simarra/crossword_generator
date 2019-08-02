@@ -1,7 +1,7 @@
   <ion-list lines="none">
     <form [formGroup]="form" >
 
-      <div class="card-body" formArrayName="words">
+      <div class="word-descr-array" formArrayName="words">
 
         <div *ngFor="let word of wordDescrFormGroup.controls; let i = index;">
           <h5>Mot:</h5>
