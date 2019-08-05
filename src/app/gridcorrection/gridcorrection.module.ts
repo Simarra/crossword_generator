@@ -5,14 +5,14 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { IonicModule } from '@ionic/angular';
 
-import { GridviewerPage } from './gridviewer.page';
-import { GridwidgetComponent } from '../gridwidget/gridwidget.component'
+import { GridcorrectionPage } from './gridcorrection.page';
+import { GridcorrwidgetComponent } from './gridcorrwidget/gridcorrwidget.component';
 import { DescriptionModule } from '../descriptions/descriptions.module';
 
 const routes: Routes = [
   {
     path: '',
-    component: GridviewerPage
+    component: GridcorrectionPage
   }
 ];
 
@@ -24,6 +24,6 @@ const routes: Routes = [
     DescriptionModule,
     RouterModule.forChild(routes)
   ],
-  declarations: [GridviewerPage, GridwidgetComponent]
+  declarations: [GridcorrectionPage, GridcorrwidgetComponent]
 })
-export class GridviewerPageModule {}
+export class GridcorrectionPageModule { }

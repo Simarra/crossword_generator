@@ -60,16 +60,24 @@ export class CrossconfigPage implements OnInit {
 
   };
 
-protected setConfigValidityBoolean(){
-  if (
-     (this.cellnumber < this.letter_count) || (
-        (this.longer_word_len < this.rownumber) && (this.longer_word_len < this.colnumber) ) 
-        ){
-          this.validconfig = true;
+  protected setConfigValidityBoolean() {
+    if (
+      (this.cellnumber < this.letter_count) || (
+        (this.longer_word_len < this.rownumber) && (this.longer_word_len < this.colnumber))
+    ) {
+      this.validconfig = true;
+      if (this.words){
+      for (let wd of this.words) {
+        if (wd == "") {
+          this.validconfig = false;
+          break;
         }
-  else {
-    this.validconfig = false;
-  }
-};
+      }
+    }
+    }
+    else {
+      this.validconfig = false;
+    }
+  };
 
 }

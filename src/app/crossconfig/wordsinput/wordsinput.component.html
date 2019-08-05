@@ -1,7 +1,7 @@
   <ion-list lines="none">
-    <form [formGroup]="form" (submit)="submit()">
+    <form [formGroup]="form" >
 
-      <div class="card-body" formArrayName="words">
+      <div class="word-descr-array" formArrayName="words">
 
         <div *ngFor="let word of wordDescrFormGroup.controls; let i = index;">
           <h5>Mot:</h5>
@@ -11,11 +11,11 @@
           </ion-item>
           <h5>Description</h5>
           <ion-item [formGroupName]="i">
-            <ion-input formControlName="descr" type="text" class="descr"  ></ion-input>
+            <ion-input formControlName="descr" type="text" class="descr" (ionChange)="wordUpdated()" ></ion-input>
           </ion-item>
         </div>
       </div>
-      <ion-button (click)="addWord()" expand="full" color="secondary"> Ajouter un Mot </ion-button>
+      <ion-button (click)="addWordFromForm()" expand="full" color="secondary"> Ajouter un Mot </ion-button>
       <!-- <button class="btn btn-success m-1" [disabled]="!form.valid" type="submit"> Save User Profile </button> -->
 
     </form>
